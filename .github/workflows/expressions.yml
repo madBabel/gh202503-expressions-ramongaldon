@@ -27,7 +27,7 @@ jobs:
       JOB_VAR: 'This is a job-level variable'
       OVERWRITTEN: 'Overwritten at job level'
     steps:
-    - name: [Debug] Print Debug Info
+    - name: "[Debug] Print Debug Info"
       if: (inputs.debug)
       run: |
         echo "Triggered by: ${{ github.event_name }}"
@@ -35,11 +35,11 @@ jobs:
         echo "Commit SHA: ${{ github.sha }}"
         echo "Runner OS: ${{ runner.os }}"
 
-    - name: [Debug] Triggered from Main
+    - name: "[Debug] Triggered from Main"
       if: inputs.debug == 'true' && github.ref == 'refs/heads/main'
       run: echo "Triggered from main branch!"
 
-    - name: Print Variables
+    - name: "Print Variables"
       env:
         STEP_VAR: 'Step-level variable'
       run: |
@@ -48,7 +48,7 @@ jobs:
         echo "Workflow var: ${{ env.WORKFLOW_VAR }}"
         echo "Overwritten: ${{ env.OVERWRITTEN }}"
 
-    - name: Overwrite and Print
+    - name: "Overwrite and Print"
       run: |
         echo "OVERWRITTEN=Overwritten at step level" >> $GITHUB_ENV
         echo "Overwritten var: ${{ env.OVERWRITTEN }}"
