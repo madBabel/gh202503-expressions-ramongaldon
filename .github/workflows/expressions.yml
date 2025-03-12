@@ -28,7 +28,7 @@ jobs:
       OVERWRITTEN: 'Overwritten at job level'
     steps:
     - name: [Debug] Print Debug Info
-      if: inputs.debug
+      if: (inputs.debug)
       run: |
         echo "Triggered by: ${{ github.event_name }}"
         echo "Branch: ${{ github.ref }}"
